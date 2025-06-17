@@ -1,3 +1,8 @@
+"""Author: Nazmul
+    Date: 2025-06-17
+    email: nazmul87@gmail.com
+"""
+
 from utils.model import Perceptron
 from utils.all_utils import prepare_data, save_model,save_plot
 import pandas as pd
