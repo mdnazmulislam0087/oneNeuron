@@ -38,7 +38,7 @@ pip install -r requirement.txt
 4. Dataset Used
 
 5. Result Analysis
-![And gate](oneNeuron\oneNeuron\plots\and.png)
+![And gate](plots\and.png)
 
 
 
