@@ -13,7 +13,8 @@ git clone https://github.com/mdnazmulislam0087/oneNeuron.git
 pip install -r requirement.txt
 
 ```
-3. Run below codes one by one 
+3. Run below codes one by one
+
     a. For and gate 
     ```
     python and.py
@@ -34,7 +35,10 @@ pip install -r requirement.txt
     python xor.py
 
     ```
+4. Dataset Used
 
+5. Result Analysis
+![And gate](oneNeuron\oneNeuron\plots\and.png)
 
 
 
