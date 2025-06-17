@@ -38,7 +38,8 @@ pip install -r requirement.txt
 4. Dataset Used
 
 5. Result Analysis
-![And gate](plots\and.png)
+## And image -
+![sample Image](plots/and.png)
 
 
 
