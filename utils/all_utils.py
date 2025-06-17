@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import joblib # FOR SAVING MY MODEL AS A BINARY FILE
 from matplotlib.colors import ListedColormap
+import logging
 
 plt.style.use("fivethirtyeight") # THIS IS STYLE OF GRAPHS
 
@@ -18,6 +19,7 @@ def prepare_data(df):
   Returns:
       tuples: it returns the tuples of dependent and independent variables/
   """
+  logging.info("Preparing data for training...")
   X = df.drop("y", axis=1)
 
   y = df["y"]
@@ -31,12 +33,16 @@ def save_model(model, filename):
       model (python obejct): trained model object.
       filename (str): name of the file to save the model as a binary file.
   """
+  logging.info(f"Saving model to {filename}...")
   model_dir = "models"
   os.makedirs(model_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   filePath = os.path.join(model_dir, filename) # model/filename
   joblib.dump(model, filePath)
+  logging.info(f"Model saved to {filePath}")
 
 def save_plot(df, file_name, model):
+  logging.info(f"Saving plot to {file_name}...")
+  """This function is used to save the plot of the data and decision boundary.""" 
   def _create_base_plot(df):
     df.plot(kind="scatter", x="x1", y="x2", c="y", s=100, cmap="winter")
     plt.axhline(y=0, color="black", linestyle="--", linewidth=1)
@@ -56,8 +62,8 @@ def save_plot(df, file_name, model):
 
     xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution), 
                            np.arange(x2_min, x2_max, resolution))
-    print(xx1)
-    print(xx1.ravel())
+    # print(xx1)
+    # print(xx1.ravel())
     Z = classfier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
     Z = Z.reshape(xx1.shape)
     plt.contourf(xx1, xx2, Z, alpha=0.2, cmap=cmap)
@@ -77,3 +83,4 @@ def save_plot(df, file_name, model):
   os.makedirs(plot_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   plotPath = os.path.join(plot_dir, file_name) # model/filename
   plt.savefig(plotPath)
+  logging.info(f"Plot saved to {plotPath}") 
