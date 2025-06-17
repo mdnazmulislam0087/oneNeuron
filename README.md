@@ -91,6 +91,7 @@ One neuron perceptron can classify NAND gate perfectly as it is linear classific
 ![sample Image](plots/xor.png)
 
 One neuron perceptron can not classify XOR gate perfectly as it is not linear classification. This is the drawback of one Neuron Perceptron. Thats why we need more neuron. 
+Using one Neuron Perceptron, We cant make decision boundary for XOR GATe, In summary XOR Gate classification is not possible using one Neuron Perceptron
 
 
 
